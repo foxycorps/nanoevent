@@ -1,5 +1,5 @@
 # NanoEvent
-The >500 Byte event emitter.
+The less than `500 Byte` event emitter.
 
 ## Usage
 
