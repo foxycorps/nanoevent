@@ -1,0 +1,21 @@
+{
+  "name": "@foxycorps/nanoevent",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "author": "crazywolf132",
+  "license": "MIT",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/test.ts",
+    "build": "microbundle --compress --no-sourcemap -f es,cjs,umd"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.0",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  }
+}

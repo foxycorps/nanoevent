@@ -1,0 +1,15 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "target": "es2015"
+  },
+  "include": [
+    "src/*.ts",
+    "test/*.ts"
+  ]
+}
