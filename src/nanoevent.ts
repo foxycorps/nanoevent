@@ -1,7 +1,7 @@
 type Key = string;
 type Handler = (...event: unknown[]) => void;
 
-export class NanoEvent {
+export default class NanoEvent {
     constructor(private listeners = new Map()) { };
 
     on(type: Key, handler: Handler): void {
@@ -39,5 +39,3 @@ export class NanoEvent {
         }
     }
 }
-
-export default new NanoEvent();

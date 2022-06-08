@@ -1,6 +1,6 @@
 {
   "name": "@foxycorps/nanoevent",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "module": "dist/nanoevent.mjs",
   "main": "dist/nanoevent.cjs",
   "jsnext:main": "dist/nanoevent.mjs",
@@ -29,7 +29,8 @@
   },
   "scripts": {
     "dev": "nodemon ./src/test.ts",
-    "build": "microbundle --compress --no-sourcemap -f es,cjs,umd"
+    "build": "microbundle --compress --no-sourcemap -f es,cjs,umd",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "microbundle": "^0.15.0",
