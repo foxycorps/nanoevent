@@ -6,7 +6,7 @@
   "jsnext:main": "dist/nanoevent.mjs",
   "umd:main": "dist/nanoevent.umd.js",
   "source": "src/nanoevent.ts",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/nanoevent.d.ts",
   "author": "crazywolf132",
   "license": "MIT",
   "private": false,
