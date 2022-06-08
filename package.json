@@ -1,12 +1,31 @@
 {
   "name": "@foxycorps/nanoevent",
   "version": "1.0.0",
-  "main": "./dist/index.js",
+  "module": "dist/nanoevent.mjs",
+  "main": "dist/nanoevent.js",
+  "jsnext:main": "dist/nanoevent.mjs",
+  "umd:main": "dist/nanoevent.umd.js",
+  "source": "src/nanoevent.ts",
+  "typings": "dist/index.d.ts",
   "author": "crazywolf132",
   "license": "MIT",
+  "private": false,
+  "type": "module",
+  "repository": "foxycorps/nanoevent",
+  "keywords": [
+    "events",
+    "eventemitter",
+    "emitter",
+    "pubsub"
+  ],
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
   "exports": {
-    "require": "./dist/index.cjs",
-    "default": "./dist/index.modern.js"
+    "import": "./dist/nanoevent.mjs",
+    "require": "./dist/nanoevent.js",
+    "default": "./dist/nanoevent.mjs"
   },
   "scripts": {
     "dev": "nodemon ./src/test.ts",
