@@ -1,6 +1,6 @@
 {
   "name": "@foxycorps/nanoevent",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "module": "dist/nanoevent.mjs",
   "main": "dist/nanoevent.cjs",
   "jsnext:main": "dist/nanoevent.mjs",

@@ -29,13 +29,9 @@ export default class NanoEvent {
         }
     }
     emit(type: Key, ...events: unknown[]): void {
-        let handlers = [...this.listeners!.get(type), ...this.listeners!.get('*'), ...this.listeners!.get(`once:${type}`)]
-        if (handlers) {
-            (handlers as Handler[])
-                .slice()
-                .map((handler) => {
-                    handler(...events!);
-                })
-        }
+        const handlers: Handler[] = [...this.listeners!.get(type), ...this.listeners!.get('*'), ...this.listeners!.get(`once:${type}`)].filter(Boolean)
+        handlers.map((handler: Handler) => {
+            handler(...events!);
+        })
     }
 }
