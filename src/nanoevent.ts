@@ -8,29 +8,31 @@ class Listener {
 export default class NanoEvent {
     constructor(private listeners: any = {}) { };
 
-    on(type: Key, handler: Handler, once: boolean): void {
+    remover(type: Key, pos: number) {
+        if (pos === -1) {
+            this.listeners[type] = undefined;
+            return
+        }
+        this.listeners.splice(pos, 1);
+        if (this.listeners[type].length === 0) this.listeners[type] = undefined;
+        if (this.listeners[type].length === 1) this.listeners[type] = this.listeners[type][0]
+    }
+
+    on(type: Key, handler: Handler, once: boolean): () => void {
         const listen = new Listener(handler, once);
         if (!this.listeners[type]) {
             this.listeners[type] = listen
+            return () => this.remover(type, -1);
         }
         if (!Array.isArray(this.listeners[type])) this.listeners[type] = [this.listeners[type]];
-        this.listeners[type]!.push(listen);
+        const pos = this.listeners[type]!.push(listen);
+        return () => this.remover(type, pos);
     }
 
     once(type: Key, handler: Handler): void {
         this.on(type, handler, true);
     }
 
-    off(type: Key, handler?: Handler): void {
-        let handlers: Array<Handler> | undefined = this.listeners!.get(type);
-        if (handlers) {
-            if (handler) {
-                handlers.splice(handlers.indexOf(handler) >>> 0, 1);
-            } else {
-                this.listeners!.set(type, []);
-            }
-        }
-    }
     emit(type: Key, ...data: unknown[]): void {
         const events = this.listeners;
         const listeners: Listener[] = [...(Array.isArray(events[type]) ? events[type] : [events[type]]), ...(Array.isArray(events['*']) ? events['*'] : [events['*']])].filter(Boolean);
