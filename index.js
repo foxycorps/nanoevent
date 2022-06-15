@@ -39,13 +39,13 @@ class NanoEvent {
         return this.on(type, callback, true);
     }
 
-    emit(type, data) {
+    emit(type, ...data) {
         const events = this.events;
         const listeners = this.events[type];
         const length = Array.isArray(listeners) ? listeners.length : 0;
 
         if (length === 0) {
-            const { callback, once } = listeners;
+            const { callback, once } = listeners || new Listener(() => { });
             callback(...data);
             if (once) events[type] = undefined;
         }
@@ -57,7 +57,7 @@ class NanoEvent {
             if (once) this.events[type].splice(index, 1);
         }
 
-        this.events[type] = this.events[type].filter(Boolean)
+        if (length >= 1) this.events[type] = this.events[type].filter(Boolean)
     }
 }
 
