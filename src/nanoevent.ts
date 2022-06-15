@@ -35,15 +35,12 @@ export default class NanoEvent {
 
     emit(type: Key, ...data: unknown[]): void {
         const events = this.listeners;
-        const listeners: Listener[] = [...(Array.isArray(events[type]) ? events[type] : [events[type]]), ...(Array.isArray(events['*']) ? events['*'] : [events['*']])].filter(Boolean);
+        const listeners = events[type];
         const length = Array.isArray(listeners) ? listeners.length : 0;
 
-        if (listeners == null || length == 0) {
-            return
-        }
 
-        if (length === 1) {
-            const { callback, once } = listeners[0];
+        if (length === 0) {
+            const { callback, once } = listeners;
             callback(...data);
 
             if (once) events[type] = undefined;
