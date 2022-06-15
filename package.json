@@ -1,13 +1,13 @@
 {
   "name": "@foxycorps/nanoevent",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "./index.js",
   "source": "./index.js",
   "author": "crazywolf132",
   "license": "MIT",
   "private": false,
-  "type": "module",
   "repository": "foxycorps/nanoevent",
+  "type": "commonjs",
   "keywords": [
     "events",
     "eventemitter",
