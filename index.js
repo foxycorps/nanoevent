@@ -26,7 +26,7 @@ class NanoEvent {
         }
 
         const e = new Listener(callback, once);
-        if (!this.ecents[type]) {
+        if (!this.events[type]) {
             this.events[type] = e;
             return () => this.remover(type, -1)
         }
