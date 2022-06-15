@@ -1,4 +1,9 @@
-import { addListener } from "nodemon";
+class Listener {
+    constructor(callback, once) {
+        this.callback = callback;
+        this.once = once;
+    }
+}
 
 class NanoEvent {
     constructor() {
@@ -29,7 +34,7 @@ class NanoEvent {
         const pos = this.events[type].push(e);
         return () => this.remover(type, pos);
     }
-    
+
     once(type, callback) {
         return this.on(type, callback, true);
     }
