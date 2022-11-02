@@ -1,8 +1,9 @@
 {
   "name": "@foxycorps/nanoevent",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "main": "./index.js",
   "source": "./index.js",
+  "types": "./index.d.ts",
   "author": "crazywolf132",
   "license": "MIT",
   "private": false,
@@ -15,8 +16,7 @@
     "pubsub"
   ],
   "files": [
-    "index.js"
-  ],
-  "scripts": {},
-  "devDependencies": {}
+    "index.js",
+    "index.d.ts"
+  ]
 }
