@@ -1,17 +1,14 @@
 declare module '@foxycorps/nanoevent' {
 
-    type callBack = (...data: unknown[]) => void;
+    type cb = (...data: any[]) => void;
 
-    export class NanoEvent {
+    declare class NanoEvent {
         constructor();
-
         remover(type: string, pos: number): void;
-
-        on(type: string, callback: callBack): (() => void);
-        once(type: string, callback: callBack): void;
-
-        emit(type: string, ...data: unknown[]): void;
+        on(type: string, callback: cb, once?: boolean): (() => void);
+        once(type: string, callback: cb): void;
+        emit(type: string, ...data: any[]): void;
     }
+    export default NanoEvent;
 
-    export { };
 }
